@@ -9,6 +9,8 @@ def date_for_bs(input_date):
     
     return bs_date
 
+###-------------------------------------------------------------------date_for_bs
+
 def manipulate_jscode(access):
     
     print( "Manipulating HTML/JS for the PCs version.")
@@ -561,7 +563,7 @@ def manipulate_jscode(access):
     print( "\nWriting HTML file for the BootStrap version.")
     write_html( bs_html_code,access.this_week_number, "bj"  )
     
-###------------------------------------------------------------------------------
+###-------------------------------------------------------------manipulate_jscode
     
 def write_html(html_code, week_number, file_type):
     filename = "WeightCalc_week" +str(week_number) +"_" +file_type +".html"
@@ -572,9 +574,9 @@ def write_html(html_code, week_number, file_type):
     
     print( "Filename:", filename)
     
-###------------------------------------------------------------------------------
+###--------------------------------------------------------------------write_html
 
-print( "WeightCalc v4")
+print( "WeightCalc v5")
 print( "https://github.com/peter-c0de/weightcalc\n" )
 
 access1 = Data()
@@ -582,3 +584,6 @@ access1 = Data()
 manipulate_jscode(access1)
 
 print( "\nDone.")
+
+
+
