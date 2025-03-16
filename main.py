@@ -457,6 +457,11 @@ def manipulate_jscode(access):
         .space{
             margin-top: 15px;
         }
+        
+        .red{
+            color: red;
+            font-weight: 400;
+        }
     </style>   
     
     """
@@ -530,12 +535,12 @@ def manipulate_jscode(access):
 
                 <h3 class="h3_main">Week {access.this_week_number} Loss</h3>
                 <h3 class="h3_semi">:</h3>
-                <h3 class="h3_data"><label id="lbl_week_loss" name="lbl_week_loss"></label></h3>
+                <h3 class="h3_data red"><label id="lbl_week_loss" name="lbl_week_loss"></label></h3>
                 <br />
 
                 <h3 class="h3_main">Total Loss</h3>
                 <h3 class="h3_semi">:</h3>
-                <h3 class="h3_data"><label id="lbl_result" name="lbl_result"></label></h3>
+                <h3 class="h3_data red"><label id="lbl_result" name="lbl_result"></label></h3>
                 <br />
 
                 <h3 class="h3_main">Today's Weight</h3>
@@ -582,7 +587,7 @@ def write_html(html_code, week_number, file_type):
 
 colorama_init(autoreset=True)
 
-print( Fore.WHITE +Back.MAGENTA +" WeightCalc v8 ")
+print( Fore.WHITE +Back.MAGENTA +" WeightCalc v9 ")
 print( Fore.WHITE +Back.MAGENTA +" https://github.com/peter-c0de/weightcalc " +Style.RESET_ALL +"\n" )
 
 access1 = Data()
