@@ -1,7 +1,11 @@
+from colorama import init as colorama_init
+from colorama import Fore
+from colorama import Style
+from colorama import Back
 from data import Data
 
 def date_for_bs(input_date):
-    print( "\nModifing Date: \"" +input_date +"\" for BootStrap version.")
+    print( "\n" +Fore.WHITE +Back.RED +"Modifing Date: \"" +input_date +"\" for BootStrap version.")
     bs_date_list = input_date.split(" ")
     month = bs_date_list[1][:3]
     bs_date_list[1] = month
@@ -572,12 +576,14 @@ def write_html(html_code, week_number, file_type):
     html_file.write( html_code )
     html_file.close()
     
-    print( "Filename:", filename)
+    print( Fore.WHITE +Back.RED +"Filename: " +filename)
     
 ###--------------------------------------------------------------------write_html
 
-print( "WeightCalc v5")
-print( "https://github.com/peter-c0de/weightcalc\n" )
+colorama_init(autoreset=True)
+
+print( Fore.WHITE +Back.MAGENTA +" WeightCalc v6 ")
+print( Fore.WHITE +Back.MAGENTA +" https://github.com/peter-c0de/weightcalc " +Style.RESET_ALL +"\n" )
 
 access1 = Data()
 
