@@ -565,7 +565,7 @@ def manipulate_jscode(access):
     write_html( html_code, access.this_week_number, "web" )
     
     print( "\nWriting HTML file for the BootStrap version.")
-    write_html( bs_html_code,access.this_week_number, "bj"  )
+    write_html( bs_html_code,access.this_week_number, "bs"  )
     
 ###-------------------------------------------------------------manipulate_jscode
     
@@ -582,7 +582,7 @@ def write_html(html_code, week_number, file_type):
 
 colorama_init(autoreset=True)
 
-print( Fore.WHITE +Back.MAGENTA +" WeightCalc v6 ")
+print( Fore.WHITE +Back.MAGENTA +" WeightCalc v7 ")
 print( Fore.WHITE +Back.MAGENTA +" https://github.com/peter-c0de/weightcalc " +Style.RESET_ALL +"\n" )
 
 access1 = Data()
