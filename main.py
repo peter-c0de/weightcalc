@@ -439,7 +439,7 @@ def manipulate_jscode(access):
 
         .h3_main{
             display: inline-block;
-            width: 205px;
+            width: 217px;
         }
 
         .h3_semi{
@@ -451,7 +451,7 @@ def manipulate_jscode(access):
         .h3_data{
             color: black;
             display: inline-block;
-            width: 157px;
+            width: 145px;
         }
 
         .space{
