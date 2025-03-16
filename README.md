@@ -1,4 +1,4 @@
-### ‘Man shall not live on bread alone, but on every word that comes from the mouth of God.’
+### ‘Man shall not live on bread alone, but on every word that comes from the mouth of God.’ **Mathew 4:4**
 ####  Ⲁⲝⲓⲟⲥ Ⲁⲝⲓⲟⲥ Ⲁⲝⲓⲟⲥ ⲡⲁϭⲟⲓⲥ ̀ⲡⲟⲩⲣⲟ Ⲅⲉⲱⲣⲅⲓⲟⲥ 
 
 # WeightCalc
