@@ -564,7 +564,7 @@ def manipulate_jscode(access):
 ###------------------------------------------------------------------------------
     
 def write_html(html_code, week_number, file_type):
-    filename = file_type +"_WeightCalc_week" +str(week_number) +".html"
+    filename = "WeightCalc_week" +str(week_number) +"_" +file_type +".html"
     
     html_file = open(filename, "w")
     html_file.write( html_code )
@@ -574,7 +574,7 @@ def write_html(html_code, week_number, file_type):
     
 ###------------------------------------------------------------------------------
 
-print( "WeightCalc v3")
+print( "WeightCalc v4")
 print( "https://github.com/peter-c0de/weightcalc\n" )
 
 access1 = Data()
