@@ -1,8 +1,18 @@
 from data import Data
 
+def date_for_bs(input_date):
+    bs_date_list = input_date.split(" ")
+    month = bs_date_list[1][:3]
+    bs_date_list[1] = month
+    bs_date = " ".join(bs_date_list)
+    
+    return bs_date
+
 def manipulate_jscode(access):
     
-    css_code = r"""
+    ### For PCs: Desktops and Laptops ###
+    
+    html_css_code = r"""
 <style>
 
     h2{
@@ -85,11 +95,10 @@ def manipulate_jscode(access):
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="icon" href="diet_ico.png" type="image/x-icon"/> -->
     <link rel="icon" href="diet.png" type="image/x-icon"/>
     <title>My Weight Progress</title>
 
-    {css_code}
+    {html_css_code}
 
 </head>
 <body>  <div class="float-container">
@@ -387,12 +396,167 @@ def manipulate_jscode(access):
 </html>
     """
     
-    write_html( html_code, access.this_week_number )
+    ### For Mobile: BootStrap ###
+
+    bs_css_code = r"""
+ 
+     <style>
+        h2{
+            color: red;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            /* Google Font: Lobster */
+            font-family: "Lobster", sans-serif;
+            font-weight: 400;
+            font-size: 40px;
+            font-style: normal;
+        }
+
+        h3{
+            color: purple;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+            /* Google Font: Noto Sans */
+            font-family: "Noto Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 300;
+            font-style: normal;
+            font-variation-settings: "wdth" 50;
+        }
+
+        .h3_main{
+            display: inline-block;
+            width: 205px;
+        }
+
+        .h3_semi{
+            display: inline-block;
+            width: 10px;
+            margin-right: 5px;
+        }
+
+        .h3_data{
+            color: black;
+            display: inline-block;
+            width: 157px;
+        }
+
+        .space{
+            margin-top: 15px;
+        }
+    </style>   
+    
+    """
+    
+    bs_html_code = rf"""
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="diet.png" type="image/x-icon"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <title>WeightCalc</title>
+
+{bs_css_code}
+
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center">
+                <h2 class="text-center">My Weight Progress</h2>
+
+                <h3 class="h3_main">Starting Date</h3>
+                <h3 class="h3_semi">:</h3>
+                <h3 class="h3_data">{date_for_bs(access.starting_date)}</h3>
+                <br />
+
+                <h3 class="h3_main">Starting Weight</h3>
+                <h3 class="h3_semi">:</h3>
+                <h3 class="h3_data">{access.starting_weight}</h3>
+                <br />
+
+                <h3 class="h3_main">First Month</h3>
+                <h3 class="h3_semi">:</h3>
+                <h3 class="h3_data">{access.first_month}</h3>
+                <br />
+
+                <h3 class="h3_main">Second Month</h3>
+                <h3 class="h3_semi">:</h3>
+                <h3 class="h3_data">{access.second_month}</h3>
+                <br />
+
+                <h3 class="h3_main">Third Month</h3>
+                <h3 class="h3_semi">:</h3>
+                <h3 class="h3_data">{access.third_month}</h3>
+                <br />
+
+                <h3 class="h3_main">Fourth Month</h3>
+                <h3 class="h3_semi">:</h3>
+                <h3 class="h3_data">{access.fourth_month}</h3>
+                <br />
+
+                <h3 class="h3_main">Fifth Month</h3>
+                <h3 class="h3_semi">:</h3>
+                <h3 class="h3_data">{access.fifth_month}</h3>
+                <br />
+
+                <h3 class="h3_main">Starting Week {access.this_week_number}</h3>
+                <h3 class="h3_semi">:</h3>
+                <h3 class="h3_data">{access.starting_current_week} KGs</h3>
+                <br />
+
+                <h3 class="h3_main">Week {access.this_week_number} Loss</h3>
+                <h3 class="h3_semi">:</h3>
+                <h3 class="h3_data"><label id="lbl_week_loss" name="lbl_week_loss"></label></h3>
+                <br />
+
+                <h3 class="h3_main">Total Loss</h3>
+                <h3 class="h3_semi">:</h3>
+                <h3 class="h3_data"><label id="lbl_result" name="lbl_result"></label></h3>
+                <br />
+
+                <h3 class="h3_main">Today's Weight</h3>
+                <h3 class="h3_semi">:</h3>
+                <h3 class="h3_data"><input type="text" id="txt_current_weight" name="txt_current_weight" size="7" /></h3>
+                <br />
+
+                <label class="space">&nbsp;</label>
+
+                <button type="button" class="btn btn-danger" name="clickbtn" onclick="add_number()">Display Result</button>
+
+{js_code}
+
+            </div>
+        </div>
+    </div>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>    
+    
+    """
+    
+    write_html( html_code, access.this_week_number, "web" )
+    write_html( bs_html_code,access.this_week_number, "bj"  )
     
 ###------------------------------------------------------------------------------
     
-def write_html(html_code, week_number):
-    filename = "WeightCalc_week" +str(week_number) +".html"
+def write_html(html_code, week_number, file_type):
+    filename = file_type +"_WeightCalc_week" +str(week_number) +".html"
     
     html_file = open(filename, "w")
     html_file.write( html_code )
