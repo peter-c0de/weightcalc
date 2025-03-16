@@ -582,7 +582,7 @@ def write_html(html_code, week_number, file_type):
 
 colorama_init(autoreset=True)
 
-print( Fore.WHITE +Back.MAGENTA +" WeightCalc v7 ")
+print( Fore.WHITE +Back.MAGENTA +" WeightCalc v8 ")
 print( Fore.WHITE +Back.MAGENTA +" https://github.com/peter-c0de/weightcalc " +Style.RESET_ALL +"\n" )
 
 access1 = Data()
