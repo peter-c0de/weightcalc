@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="diet.png" type="image/x-icon"/>
+    <title>My Weight Progress</title>
+
+    
+<style>
+
+    h2{
+        color: red;
+    }
+
+    h3{
+        color: purple;
+    }
+
+    .h3_black{
+        color: black;
+    }
+
+    .h3_red{
+        color: red;
+    }
+
+    tr{
+        /* Change it to change the cell's height size */
+        line-height: 20px;
+    }
+
+    .float-container {
+        /* border: 1px solid black; */
+        margin: 1rem;
+        padding: 2rem 2rem;
+        text-align: center;
+    }
+
+    .float-child {
+        display: inline-block;
+        border: 1px solid red;
+        padding: 1rem 1rem;
+        vertical-align: middle;
+    }
+
+</style>
+    
+
+</head>
+<body>  <div class="float-container">
+        <div class="float-child">
+            <h2>My Weight Progress</h2>
+            <table>
+                <tr>
+                    <td><h3>Starting Date</h3></td>
+                    <td><h3>:</h3></td>
+                    <td><h3 class="h3_black">5 January 2025</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Starting Weight</h3></td>
+                    <td><h3>:</h3></td>
+                    <td><h3 class="h3_black">100 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>First Month</h3></td>
+                    <td><h3>:</h3></td>
+                    <td><h3 class="h3_black">95 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Second Month</h3></td>
+                    <td><h3>:</h3></td>
+                    <td><h3 class="h3_black">90 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Third Month</h3></td>
+                    <td><h3>:</h3></td>
+                    <td><h3 class="h3_black">March</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Fourth Month</h3></td>
+                    <td><h3>:</h3></td>
+                    <td><h3 class="h3_black">April</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Fifth Month</h3></td>
+                    <td><h3>:</h3></td>
+                    <td><h3 class="h3_black">May</h3></td>
+                </tr>
+                <tr>
+                    <!---------- 1/4 Change Here: Week Number ---------->
+                    <!---------- 2/4 Change Here: Week KGs    ---------->
+                    <td><h3>Starting Week 11</h3></td>
+                    <td><h3>:</h3></td>
+                    <td><h3 class="h3_black">85 KGs</h3></td>
+                </tr>
+                <tr>
+                    <!---------- 3/4 Change Here: Week Number ---------->
+                    <td><h3>Week 11 Loss</h3></td>
+                    <td><h3>:</h3></td>
+                    <td><h3 class="h3_red"><label id="lbl_week_loss" name="lbl_week_loss"></label></h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Total Loss</h3></td>
+                    <td><h3>:</h3></td>
+                    <td><h3 class="h3_red"><label id="lbl_result" name="lbl_result"></label></h3></td>
+                </tr>
+                <tr>
+                    <td><h3><label for="txt_current_weight">Today's Weight</label></h3></td>
+                    <td><h3>:</h3></td>
+                    <td><input type="text" id="txt_current_weight" name="txt_current_weight"></td>
+                </tr>
+            </table>
+            <input type="button" name="clickbtn" value="Display Result" onclick="add_number()">
+        </div>
+           
+        
+<script type="text/javascript">
+        function add_number() 
+        {
+            //Change it every week.
+            //---------- 4/4 Change Here: Week Starting Weight ---------->
+            var week_starting = 85; 
+
+            /*
+            var current_weight = parseInt(document.getElementById("txt_current_weight").value);
+            var week_result = week_starting - current_weight;
+            week_result = week_result.toFixed(2) +" KGs";
+            var result = 108.2 - current_weight;
+            result = result.toFixed(2) +" KGs";
+            */
+
+            // Very IMP: USE ParseFLOAT instead of PARSEINT!!!!
+            // VERY IMP: TO GET THE PERCESION RIGHT DO IT AS FOLLOWS:
+            // Ref: https://stackoverflow.com/questions/1458633/how-to-deal-with-floating-point-number-precision-in-javascript
+            var current_weight = parseFloat(document.getElementById("txt_current_weight").value);
+            var week_result = parseFloat((week_starting - current_weight).toFixed(2));
+            week_result = week_result +" KGs";
+
+            // Starting Weight: 105.50
+            var result = parseFloat((105.50 - current_weight).toFixed(2));
+            result = result +" KGs";            
+
+            //document.getElementById("txtresult").value = result;
+            document.getElementById("lbl_week_loss").innerHTML = week_result ;
+            document.getElementById("lbl_result").innerHTML = result ;
+        }
+</script>
+    
+            
+        <div class="float-child">
+            <table>
+                <tr>
+                    <td><h3>Week 1</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">1.25</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">98.75 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 2</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">1.25</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">97.50 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 3</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">1.25</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">96.25 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 4</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">1.25</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">95.00 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 5</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">1.25</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">93.75 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 6</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">1.25</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">92.50 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 7</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">1.25</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">91.25 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 8</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">1.25</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">90.00 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 9</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">1.25</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">88.75 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 10</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">1.25</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">87.50 KGs</h3></td>
+                </tr>
+            </table>
+        </div>
+        <div class="float-child">
+            <table>
+                <tr>
+                    <td><h3>Week 11</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 12</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 13</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 14</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 15</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 16</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 17</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 18</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 19</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 20</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+            </table>
+        </div>
+        <div class="float-child">
+            <table>
+                <tr>
+                    <td><h3>Week 21</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 22</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 23</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 24</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 25</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 26</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 27</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 28</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 29</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Week 30</h3></td>
+                    <td>:</td>
+                    <td><h3 class="h3_black">0</h3></td>
+                    <td><h3 class="h3_black"> - </h3></td>
+                    <td><h3 class="h3_black">0 KGs</h3></td>
+                </tr>
+            </table>
+        </div>
+        </div>
+</body>
+</html>
+    
